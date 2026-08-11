@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Brand tokens, copied verbatim from frontend/app/globals.css.
+   Primary palette from Figma brand node 2007:6220.
+   Derived surface colors from Figma screen node 2012:2. */
+:root {
+  color-scheme: dark;
+  /* Gold Green  -> buttons, logo, active nav */
+  --dash-accent: #C9E04A;
+  /* Ghost White -> all primary text */
+  --dash-text: #FAFBFF;
+  /* Mute Gold   -> yield %, positive stat subtitles */
+  --dash-green: #8FA832;
+  /* Rich Black  -> page background */
+  --dash-background: #141414;
+  /* Citrine     -> secondary accent */
+  --dash-citrine: #D3C002;
+  /* Zaffre      -> card gradient, badges */
+  --dash-blue: #0211A9;
+  --dash-nav-bg: #171717;
+  --dash-surface: #1E1E1E;
+  --dash-border: #242424;
+  --dash-border-muted: #2A2A2A;
+  --dash-border-strong: #4A4A44;
+  --dash-text-muted: #7A7A72;
+  --dash-accent-dark: #1A2200;
+  --dash-blue-dark: #010743;
+  --dash-blue-light: #378ADD;
+  --dash-orange: #EF9F27;
+  --dash-olive-surface: rgba(74, 83, 0, 0.35);
+}
+
+html,
+body {
+  background: var(--dash-background);
+  color: var(--dash-text);
+}

@@ -23,7 +23,7 @@ export default function Hero() {
           href={APP_URL}
           className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-xs font-medium text-soft transition-colors hover:text-ink"
         >
-          Live on Stellar testnet
+          Live on testnet
         </motion.a>
 
         <motion.h1
@@ -45,7 +45,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p {...rise(0.45)} className="mt-6 max-w-2xl text-base text-soft text-pretty md:text-xl">
-          YieldBack.Cash turns your yield-bearing collateral into tradable tokens, enabling you to
+          Yieldback Cash turns your yield-bearing collateral into tradable tokens, enabling you to
           leverage yield or earn a fixed interest rate.
         </motion.p>
 

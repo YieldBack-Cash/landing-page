@@ -15,7 +15,7 @@ export default function Nav() {
             <AnimatedBunny />
           </span>
           <a href="#top" className="font-extrabold tracking-tight">
-            YieldBack.Cash
+            Yieldback Cash
           </a>
         </div>
 

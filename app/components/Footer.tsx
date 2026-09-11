@@ -3,6 +3,7 @@ import { Reveal } from "./motion";
 import { APP_URL, BTN_SECONDARY, DISCORD_URL, DOCS_URL, GITHUB_URL } from "./site";
 import { RiseH2 } from "./yuiMotions";
 import LaunchAppButton from "./LaunchAppButton";
+import CarrotDiscordButton from "./CarrotDiscordButton";
 
 export function FinalCta() {
   return (
@@ -19,11 +20,7 @@ export function FinalCta() {
           <a href={DOCS_URL} className={BTN_SECONDARY}>
             Read the docs
           </a>
-          {DISCORD_URL && (
-            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
-              Join Discord
-            </a>
-          )}
+          {DISCORD_URL && <CarrotDiscordButton />}
         </div>
       </Reveal>
     </section>

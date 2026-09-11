@@ -28,10 +28,90 @@
   --dash-blue-light: #378ADD;
   --dash-orange: #EF9F27;
   --dash-olive-surface: rgba(74, 83, 0, 0.35);
+  /* Landing only: body copy. --dash-text-muted is ~4:1 on the surfaces, so it
+     is kept for decorative labels and this lighter tone carries readable text. */
+  --dash-text-soft: #A3A39A;
+}
+
+/* Short utility names for the landing page: bg-surface, text-lime, border-line... */
+@theme inline {
+  --color-bg: var(--dash-background);
+  --color-surface: var(--dash-surface);
+  --color-line: var(--dash-border-muted);
+  --color-line-strong: var(--dash-border-strong);
+  --color-ink: var(--dash-text);
+  --color-soft: var(--dash-text-soft);
+  --color-muted: var(--dash-text-muted);
+  --color-lime: var(--dash-accent);
+  --color-lime-ink: var(--dash-accent-dark);
+  --color-yt: var(--dash-blue-light);
+}
+
+/* Calm "breathe" idle, adapted from yui540/css-animations 2026-06-09/tips-2
+   (MIT, see app/components/yuiMotions.tsx and THIRD_PARTY_NOTICES.md).
+   Always apply as `motion-safe:animate-breathe`, so it never runs under
+   prefers-reduced-motion: reduce. */
+@theme {
+  --animate-breathe: breathe 1.075s ease-in-out infinite;
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.03, 1.01) skewX(-1deg);
+    }
+  }
+
+  /* Breathe, then every cycle a hop: crouch, jump (stretch), land (squash), small rebound.
+     Same motion-safe rule as breathe. `transform` only, so it composes with Tailwind's
+     separate `translate` utilities on the element. */
+  --animate-hop: hop 4.2s ease-in-out infinite;
+  /* same hop half a cycle later, so two bunnies on screen never jump together */
+  --animate-hop-late: hop 4.2s ease-in-out -2.1s infinite;
+  @keyframes hop {
+    0%, 20%, 40%, 60% {
+      transform: scale(1, 1);
+    }
+    10%, 30%, 50% {
+      transform: scale(1.03, 1.01) skewX(-1deg);
+    }
+    70% {
+      transform: translateY(0) scale(1.08, 0.9);
+    }
+    78% {
+      transform: translateY(-28%) scale(0.94, 1.08);
+    }
+    86% {
+      transform: translateY(0) scale(1.1, 0.88);
+    }
+    91% {
+      transform: translateY(-6%) scale(0.98, 1.03);
+    }
+    96%, 100% {
+      transform: translateY(0) scale(1, 1);
+    }
+  }
 }
 
 html,
 body {
   background: var(--dash-background);
   color: var(--dash-text);
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--dash-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
 }

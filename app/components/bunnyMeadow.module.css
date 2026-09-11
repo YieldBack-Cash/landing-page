@@ -1,0 +1,120 @@
+/* The bunny hopping across the grass at the bottom of the page.
+   Hop: squash before take-off, stretch in the air, squash on landing. Technique adapted from
+   yui540/css-animations 2026-04-29/tips-4 "hop hop" (MIT, see THIRD_PARTY_NOTICES.md).
+   Bunny art: the team's bunny (app/components/bunny). */
+
+.meadow {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+  container-type: inline-size; /* lets the travel keyframes use 100cqw */
+}
+
+.grass {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  height: 78px;
+}
+
+.grassFront {
+  z-index: 2; /* a few blades in front of the bunny's feet */
+  height: 34px;
+}
+
+.blade {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: sway var(--sway, 3.6s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+@keyframes sway {
+  from { transform: rotate(calc(var(--lean, 0deg) - 4deg)); }
+  to { transform: rotate(calc(var(--lean, 0deg) + 4deg)); }
+}
+
+.runner {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  z-index: 1;
+  width: 76px;
+  animation: travel 18s linear infinite;
+}
+
+@keyframes travel {
+  from { transform: translateX(-110px); }
+  to { transform: translateX(calc(100cqw + 30px)); }
+}
+
+.hopper {
+  transform-origin: 50% 100%;
+  animation: hop 0.75s infinite;
+}
+
+/* 0.75s per hop: crouch → stretch up → tilt at the apex → reach for the ground → squash */
+@keyframes hop {
+  0% { transform: translateY(0) scale(1.08, 0.9); animation-timing-function: ease-out; }
+  14% { transform: translateY(-4px) scale(0.93, 1.08); animation-timing-function: ease-out; }
+  50% { transform: translateY(-40px) scale(1, 1) rotate(-6deg); animation-timing-function: ease-in; }
+  86% { transform: translateY(-4px) scale(0.96, 1.05) rotate(3deg); animation-timing-function: ease-out; }
+  100% { transform: translateY(0) scale(1.08, 0.9); }
+}
+
+.shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 56px;
+  height: 7px;
+  margin-left: -28px;
+  border-radius: 50%;
+  background: #000;
+  animation: shadow 0.75s infinite;
+}
+
+@keyframes shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.35; }
+  50% { transform: scaleX(0.55); opacity: 0.12; }
+}
+
+.nearEar {
+  transform-origin: 735px 265px;
+  animation: ear 0.75s ease-in-out infinite;
+}
+
+.farEar {
+  transform-origin: 674px 228px;
+  animation: ear 0.75s ease-in-out -0.08s infinite;
+}
+
+/* ears trail back on the way up and flop forward on landing */
+@keyframes ear {
+  0%, 100% { transform: rotate(4deg); }
+  50% { transform: rotate(-20deg); }
+}
+
+.eye {
+  transform-origin: 734px 363px;
+  animation: blink 4.6s infinite;
+}
+
+@keyframes blink {
+  0%, 90%, 95%, 100% { transform: scaleY(1); }
+  92.5% { transform: scaleY(0.08); }
+}
+
+/* off-screen: stop spending frames on it */
+.meadow[data-playing="false"] * {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meadow * {
+    animation: none !important;
+  }
+  .runner {
+    transform: translateX(12cqw);
+  }
+}

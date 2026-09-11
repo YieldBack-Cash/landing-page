@@ -1,22 +1,21 @@
 import Image from "next/image";
 import { Reveal } from "./motion";
-import { APP_URL, BTN_PRIMARY, BTN_SECONDARY, DISCORD_URL, DOCS_URL, GITHUB_URL } from "./site";
+import { APP_URL, BTN_SECONDARY, DISCORD_URL, DOCS_URL, GITHUB_URL } from "./site";
 import { RiseH2 } from "./yuiMotions";
+import LaunchAppButton from "./LaunchAppButton";
 
 export function FinalCta() {
   return (
-    <section aria-labelledby="cta-title" className="relative overflow-hidden px-5 py-28 md:px-8 md:py-40">
+    <section aria-labelledby="cta-title" className="relative overflow-hidden px-5 pt-28 pb-6 md:px-8 md:pt-40 md:pb-8">
       <Reveal className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
         <RiseH2
           id="cta-title"
           className="text-5xl font-extrabold tracking-tight text-balance md:text-7xl"
           text="Lock it in. Or lever it up."
         />
-        <p className="mt-6 max-w-xl text-lg text-soft">Try the live markets on Stellar testnet.</p>
+        <p className="mt-6 max-w-xl text-lg text-soft">Try the live markets on Stellar Testnet.</p>
         <div className="mt-10 flex w-full max-w-xs flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row">
-          <a href={APP_URL} className={BTN_PRIMARY}>
-            Launch app
-          </a>
+          <LaunchAppButton />
           <a href={DOCS_URL} className={BTN_SECONDARY}>
             Read the docs
           </a>

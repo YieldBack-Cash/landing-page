@@ -69,7 +69,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
     q: "Which network is it on?",
     a: (
       <>
-        The live markets are on Stellar testnet. The protocol is a set of smart contracts on
+        The live markets are on Stellar Testnet. The protocol is a set of smart contracts on
         Stellar; the {doc("/protocol/architecture", "architecture docs")} explain how they fit
         together.
       </>
@@ -93,11 +93,13 @@ export default function Faq() {
             <details key={q} className="group">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-medium [&::-webkit-details-marker]:hidden">
                 {q}
+                {/* drawn plus that folds into a minus when open (a rotated "+" glyph never sits centred) */}
                 <span
                   aria-hidden
-                  className="flex size-8 shrink-0 items-center justify-center rounded-full border border-line text-soft transition-transform duration-300 group-open:rotate-45 group-open:text-lime"
+                  className="relative flex size-8 shrink-0 items-center justify-center rounded-full border border-line text-soft transition-colors duration-300 group-open:border-lime/50 group-open:text-lime"
                 >
-                  +
+                  <span className="absolute h-[1.5px] w-3 rounded-full bg-current" />
+                  <span className="absolute h-3 w-[1.5px] rounded-full bg-current transition-transform duration-300 group-open:scale-y-0" />
                 </span>
               </summary>
               <p className="max-w-2xl pb-6 leading-relaxed text-soft">{a}</p>

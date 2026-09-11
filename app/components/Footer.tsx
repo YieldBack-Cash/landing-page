@@ -58,6 +58,8 @@ export default function Footer() {
           </ul>
         </nav>
       </div>
+      {/* year from the build date; the page is prerendered, so each deploy stamps the current year */}
+      <p className="mx-auto mt-8 max-w-6xl text-xs text-soft">© {new Date().getFullYear()} Yieldback Cash. All rights reserved.</p>
     </footer>
   );
 }

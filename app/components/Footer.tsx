@@ -6,7 +6,7 @@ import LaunchAppButton from "./LaunchAppButton";
 
 export function FinalCta() {
   return (
-    <section aria-labelledby="cta-title" className="relative overflow-hidden px-5 py-28 md:px-8 md:py-40">
+    <section aria-labelledby="cta-title" className="relative overflow-hidden px-5 pt-28 pb-6 md:px-8 md:pt-40 md:pb-8">
       <Reveal className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
         <RiseH2
           id="cta-title"

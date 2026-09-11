@@ -2,10 +2,11 @@
 
 import { motion } from "motion/react";
 import { EASE } from "./motion";
-import { APP_URL, BTN_PRIMARY, BTN_SECONDARY, DOCS_URL } from "./site";
+import { APP_URL, BTN_SECONDARY, DOCS_URL } from "./site";
 import TradeCardMock from "./TradeCardMock";
 import { RiseWords } from "./yuiMotions";
 import AnimatedBunny from "./bunny/AnimatedBunny";
+import LaunchAppButton from "./LaunchAppButton";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -50,9 +51,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div {...rise(0.55)} className="mt-9 flex w-full max-w-xs flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row">
-          <a href={APP_URL} className={BTN_PRIMARY}>
-            Launch app
-          </a>
+          <LaunchAppButton />
           <a href={DOCS_URL} className={BTN_SECONDARY}>
             Read the docs
           </a>

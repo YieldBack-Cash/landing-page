@@ -65,6 +65,22 @@ function GrassLayer({ blades, className, flowers = false }: { blades: Blade[]; c
   );
 }
 
+// Same art and framing as the team's AnimatedBunny (viewBox 240×200, art scaled by .16).
+// earsFlop syncs the ears to the meadow's 0.75s hop; the eye blinks either way.
+export function BunnyArt({ earsFlop = false }: { earsFlop?: boolean }) {
+  return (
+    <svg viewBox="0 0 240 200" className="block w-full h-auto overflow-visible" aria-hidden="true">
+      <g fill="var(--dash-accent)" transform="translate(40 20) scale(.16)">
+        <path d={bunnyBody} />
+        <path className={earsFlop ? styles.farEar : undefined} d={originalFarEarPath} />
+        <path className={earsFlop ? styles.nearEar : undefined} d="M856 252 C794 144 579 22 510 35 C439 45 486 134 561 192 L723 302Z" />
+        <circle cx="99" cy="780" r="63" />
+        <ellipse className={styles.eye} cx="734" cy="363" rx="46" ry="44" fill="var(--dash-background)" />
+      </g>
+    </svg>
+  );
+}
+
 // The bottom of the landing page: the bunny hops across a strip of swaying grass.
 // Decorative only (aria-hidden). Paused while off-screen; still under reduced motion.
 export default function BunnyMeadow() {
@@ -85,16 +101,7 @@ export default function BunnyMeadow() {
       <div className={styles.runner}>
         <div className={styles.shadow} />
         <div className={styles.hopper}>
-          {/* same art and framing as the team's AnimatedBunny (viewBox 240×200, art scaled by .16) */}
-          <svg viewBox="0 0 240 200" className="block w-full h-auto overflow-visible">
-            <g fill="var(--dash-accent)" transform="translate(40 20) scale(.16)">
-              <path d={bunnyBody} />
-              <path className={styles.farEar} d={originalFarEarPath} />
-              <path className={styles.nearEar} d="M856 252 C794 144 579 22 510 35 C439 45 486 134 561 192 L723 302Z" />
-              <circle cx="99" cy="780" r="63" />
-              <ellipse className={styles.eye} cx="734" cy="363" rx="46" ry="44" fill="var(--dash-background)" />
-            </g>
-          </svg>
+          <BunnyArt earsFlop />
         </div>
       </div>
       <GrassLayer blades={FRONT} className={`${styles.grass} ${styles.grassFront}`} />

@@ -23,7 +23,7 @@ export default function Hero() {
           href={APP_URL}
           className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-xs font-medium text-soft transition-colors hover:text-ink"
         >
-          Live on Stellar testnet
+          Live on testnet
         </motion.a>
 
         <motion.h1

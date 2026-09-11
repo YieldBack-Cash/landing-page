@@ -45,7 +45,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p {...rise(0.45)} className="mt-6 max-w-2xl text-base text-soft text-pretty md:text-xl">
-          YieldBack.Cash turns your yield-bearing collateral into tradable tokens, enabling you to
+          Yieldback Cash turns your yield-bearing collateral into tradable tokens, enabling you to
           leverage yield or earn a fixed interest rate.
         </motion.p>
 

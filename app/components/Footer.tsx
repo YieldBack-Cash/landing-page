@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <a href="#top" className="flex items-center gap-2 font-extrabold tracking-tight">
           <Image src="/YBC Official Logo 1.png" alt="" width={24} height={24} />
-          YieldBack.Cash
+          Yieldback Cash
         </a>
         <nav aria-label="Footer">
           <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-soft">

@@ -16,7 +16,7 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "YieldBack.Cash",
+  title: "Yieldback Cash",
   description:
     "Turns your liquidity into tradable bond-style coupons for predictable, upfront yield.",
 };

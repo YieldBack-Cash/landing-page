@@ -69,7 +69,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
     q: "Which network is it on?",
     a: (
       <>
-        The live markets are on Stellar testnet. The protocol is a set of smart contracts on
+        The live markets are on Stellar Testnet. The protocol is a set of smart contracts on
         Stellar; the {doc("/protocol/architecture", "architecture docs")} explain how they fit
         together.
       </>

@@ -8,7 +8,7 @@ export default function TestnetNotice() {
       <div className="mx-auto max-w-3xl rounded-2xl border border-[#ef9f27]/40 bg-[#ef9f27]/10 p-5 sm:p-6">
         <div>
           <h2 id="testnet-notice-title" className="text-base font-bold text-ink">
-            Yieldback Cash runs on Stellar testnet
+            Yieldback Cash runs on Stellar Testnet
           </h2>
           <p className="mt-1.5 text-sm text-soft">
             Switch your wallet&apos;s network to <strong className="text-ink">Testnet</strong>{" "}before connecting, or balances

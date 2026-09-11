@@ -12,7 +12,7 @@ export function FinalCta() {
           className="text-5xl font-extrabold tracking-tight text-balance md:text-7xl"
           text="Lock it in. Or lever it up."
         />
-        <p className="mt-6 max-w-xl text-lg text-soft">Try the live markets on Stellar testnet.</p>
+        <p className="mt-6 max-w-xl text-lg text-soft">Try the live markets on Stellar Testnet.</p>
         <div className="mt-10 flex w-full max-w-xs flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row">
           <a href={APP_URL} className={BTN_PRIMARY}>
             Launch app

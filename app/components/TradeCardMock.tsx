@@ -44,7 +44,7 @@ export default function TradeCardMock() {
 
       <div
         role="img"
-        aria-label="Illustration of the YieldBack trade card in the XLM · Blend market: Buy PT selected, you pay 100 XLM and receive about 100.7 PT at a fixed APY. Figures are illustrative."
+        aria-label="Illustration of the YieldBack trade card in the XLM market on Blend: Buy PT selected, you pay 100 XLM and receive about 100.7 PT at a fixed APY. Figures are illustrative."
         className="relative rounded-3xl border border-line bg-surface/70 p-2 shadow-2xl shadow-black/60 backdrop-blur md:p-3"
       >
         <div className="flex items-center justify-between px-3 pt-1.5 pb-3">
@@ -149,7 +149,9 @@ function MarketHeader() {
           <Image src="/Stellar.png" alt="" width={32} height={32} className="relative z-20 size-8 rounded-full border border-line" />
           <Image src="/BLND.png" alt="" width={32} height={32} className="relative z-10 -ml-2.5 size-8 rounded-full border border-line" />
         </span>
-        <span className="font-medium">XLM · Blend</span>
+        <span className="font-medium">
+          XLM <span className="font-normal text-soft">Blend</span>
+        </span>
       </div>
       <span className="rounded-full border border-line px-2.5 py-0.5 text-[11px] text-soft">60 days to maturity</span>
     </div>

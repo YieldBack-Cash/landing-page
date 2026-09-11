@@ -7,6 +7,7 @@ import {
   useReducedMotion,
   useTransform,
 } from "motion/react";
+import Image from "next/image";
 import { useEffect, type ReactNode } from "react";
 import { useLoop } from "./motion";
 
@@ -78,7 +79,7 @@ export default function TradeCardMock() {
               <span className="py-1.5 text-center text-soft">Buy YT</span>
             </div>
 
-            <Field label="You pay" token="XLM" tokenClass="bg-line text-ink">
+            <Field label="You pay" token="XLM" icon="/Stellar.png" tokenClass="bg-line text-ink">
               <motion.span>{pay}</motion.span>
             </Field>
             <div className="relative z-10 -my-2.5 flex justify-center">
@@ -143,7 +144,11 @@ function MarketHeader() {
   return (
     <div className="flex items-center justify-between gap-3">
       <div className="flex items-center gap-2.5">
-        <span className="flex size-8 items-center justify-center rounded-full bg-line text-[11px] font-extrabold">XLM</span>
+        {/* same pairing as the app: the underlying (XLM) in front, the protocol (Blend) behind */}
+        <span className="flex shrink-0">
+          <Image src="/Stellar.png" alt="" width={32} height={32} className="relative z-20 size-8 rounded-full border border-line" />
+          <Image src="/BLND.png" alt="" width={32} height={32} className="relative z-10 -ml-2.5 size-8 rounded-full border border-line" />
+        </span>
         <span className="font-medium">XLM · Blend</span>
       </div>
       <span className="rounded-full border border-line px-2.5 py-0.5 text-[11px] text-soft">60 days to maturity</span>
@@ -164,11 +169,13 @@ function Field({
   label,
   token,
   tokenClass,
+  icon,
   children,
 }: {
   label: string;
   token: string;
   tokenClass: string;
+  icon?: string;
   children: ReactNode;
 }) {
   return (
@@ -176,7 +183,10 @@ function Field({
       <div className="text-xs text-soft">{label}</div>
       <div className="mt-1 flex items-center justify-between gap-3">
         <span className="text-2xl font-medium tabular-nums md:text-3xl">{children}</span>
-        <span className={`rounded-full px-2.5 py-1 text-sm font-medium ${tokenClass}`}>{token}</span>
+        <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-sm font-medium ${icon ? "pl-1" : ""} ${tokenClass}`}>
+          {icon && <Image src={icon} alt="" width={20} height={20} className="size-5 rounded-full" />}
+          {token}
+        </span>
       </div>
     </div>
   );

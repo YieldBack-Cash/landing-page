@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AnimatedBunny from "./components/bunny/AnimatedBunny";
 
 // set NEXT_PUBLIC_DISCORD_URL to the server invite link (e.g. https://discord.gg/...)
 const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL;
@@ -15,14 +15,7 @@ export default function Home() {
       />
 
       <div className="relative flex flex-col items-center">
-        <Image
-          src="/YBC Official Logo 1.png"
-          alt="YieldBackCash"
-          width={96}
-          height={96}
-          className="object-cover"
-          priority
-        />
+        <AnimatedBunny />
 
         <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold text-(--dash-text)">
           YieldBack.Cash
